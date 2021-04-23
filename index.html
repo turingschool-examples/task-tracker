@@ -7,12 +7,14 @@
   <body>
     <header>
       <h1>TASK TRACKER</h1>
+      <div class="title-accent accent-box"></div>
       <label for="filter-selection">VIEW:</label>
       <select id="filter-selection" name="filter-selection">
         <option value="all">ALL TASKS</option>
         <option value="completed">COMPLETED ONLY</option>
         <option value="incomplete">INCOMPLETE ONLY</option>
       </select>
+      <div class="filter-accent accent-box"></div>
     </header>
     <form>
       <label for="day-selection">day:</label>
@@ -32,6 +34,14 @@
         <h2>Monday</h2>
         <section class="monday-task-container task-container">
           <!-- monday's tasks go here -->
+
+          <!-- example card (delete later)-->
+          <section class="task-card">
+            <p>Call mom</p>
+            <button type="button" name="delete-button">X</button>
+            <button type="button" name="complete-button">V</button>
+          </section>
+
         </section>
       </article>
       <article>
