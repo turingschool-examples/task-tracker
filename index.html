@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Task Tracker</title>
+  </head>
+  <body>
+    <header>
+      <h1>TASK TRACKER</h1>
+      <label for="filter-selection">VIEW:</label>
+      <select id="filter-selection" name="filter-selection">
+        <option value="all">ALL TASKS</option>
+        <option value="completed">COMPLETED ONLY</option>
+        <option value="incomplete">INCOMPLETE ONLY</option>
+      </select>
+    </header>
+    <form>
+      <label for="day-selection">day:</label>
+      <select id="day-selection" name="day-selection">
+        <option value="monday">MONDAY</option>
+        <option value="tuesday">TUESDAY</option>
+        <option value="wednesday">WEDNESDAY</option>
+        <option value="thursday">THURSDAY</option>
+        <option value="friday">FRIDAY</option>
+      </select>
+      <label for="task-input">task:</label>
+      <input type="text" id="task-input" name="task-input" value="">
+      <button type="button" name="add-task-button">add task</button>
+    </form>
+    <main>
+      <article>
+        <h2>Monday</h2>
+        <section class="monday-task-container task-container">
+          <!-- monday's tasks go here -->
+        </section>
+      </article>
+      <article>
+        <h2>Tuesday</h2>
+        <section class="tuesday-task-container task-container">
+          <!-- tuesday's tasks go here -->
+        </section>
+      </article>
+      <article>
+        <h2>Wednesday</h2>
+        <section class="wednesday-task-container task-container">
+          <!-- wednesday's tasks go here -->
+        </section>
+      </article>
+      <article>
+        <h2>Thursday</h2>
+        <section class="thursday-task-container task-container">
+          <!-- thursday's tasks go here -->
+        </section>
+      </article>
+      <article>
+        <h2>Friday</h2>
+        <section class="friday-task-container task-container">
+          <!-- friday's tasks go here -->
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
