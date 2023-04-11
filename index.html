@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>TASK TRACKER</h1>
-      <div class="title-accent accent-box"></div>
+      <div class="header-flex">
+        <h1>TASK TRACKER</h1>
+        <div class="title-accent accent-box"></div>
+      </div>
       <label for="filter-selection">VIEW:</label>
       <select id="filter-selection" name="filter-selection">
         <option value="all">ALL TASKS</option>
@@ -38,8 +43,7 @@
           <!-- example card (delete later)-->
           <section class="task-card">
             <p>Call mom</p>
-            <button type="button" name="delete-button">X</button>
-            <button type="button" name="complete-button">V</button>
+            <button type="button" name="complete-button">✔️</button>
           </section>
 
         </section>

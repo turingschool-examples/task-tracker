@@ -1,0 +1,43 @@
+/* COLORS */
+
+/* red: #F9614E */
+/* light red: #FDD3CB */
+
+/* blue: #A8CBFD */
+/* light blue: #EAEEF6 */
+
+/* yellow: #FDD875 */
+/* light yellow: #FEF2CE */
+
+/* purple: #E3AFE8 */
+/* light purple: #F8E7F1 */
+
+/* orange: #FDDFCB */
+/* light orange: #FA914D */
+
+/* text: #545454 */
+/* background: #FFF */
+
+
+* {
+  color: #545454;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.accent-box {
+  height: 30px;
+  width: 45%;
+  border-radius: 10px;
+}
+
+.title-accent {
+  background-color: #FDD3CB;
+}
+
+.filter-accent {
+ background-color: #EAEEF6;
+}
+
+h2 {
+  color: white;
+}
