@@ -9,65 +9,82 @@
   </head>
   <body>
     <header>
-      <div class="header-flex">
-        <h1>TASK TRACKER</h1>
-        <div class="title-accent accent-box"></div>
+      <h1>TASK TRACKER</h1>
+      <div class="filter-container">
+        <label for="filter-selection">VIEW:</label>
+        <select id="filter-selection" name="filter-selection">
+          <option value="all">ALL TASKS</option>
+          <option value="completed">COMPLETED ONLY</option>
+          <option value="incomplete">INCOMPLETE ONLY</option>
+        </select>
       </div>
-      <label for="filter-selection">VIEW:</label>
-      <select id="filter-selection" name="filter-selection">
-        <option value="all">ALL TASKS</option>
-        <option value="completed">COMPLETED ONLY</option>
-        <option value="incomplete">INCOMPLETE ONLY</option>
-      </select>
-      <div class="filter-accent accent-box"></div>
     </header>
     <form>
-      <label for="day-selection">day:</label>
-      <select id="day-selection" name="day-selection">
-        <option value="monday">MONDAY</option>
-        <option value="tuesday">TUESDAY</option>
-        <option value="wednesday">WEDNESDAY</option>
-        <option value="thursday">THURSDAY</option>
-        <option value="friday">FRIDAY</option>
-      </select>
-      <label for="task-input">task:</label>
-      <input type="text" id="task-input" name="task-input" value="">
-      <button type="button" name="add-task-button">add task</button>
+      <div class="form-container">
+        <label for="day-selection">day:</label>
+        <select id="day-selection" name="day-selection">
+          <option value="monday">Monday</option>
+          <option value="tuesday">Tuesday</option>
+          <option value="wednesday">Wednesday</option>
+          <option value="thursday">Thursday</option>
+          <option value="friday">Friday</option>
+        </select>
+      </div>
+      <div class="form-container">
+        <label for="task-input">task:</label>
+        <input type="text" id="task-input" name="task-input" value="">
+      </div>
+      <div class="form-button-container">
+        <button type="button" id="add-task-button" name="add-task-button">add task</button>
+      </div>
     </form>
     <main>
       <article>
-        <h2>Monday</h2>
+        <h2 class="monday-title">Monday</h2>
         <section class="monday-task-container task-container">
           <!-- monday's tasks go here -->
 
           <!-- example card (delete later)-->
-          <section class="task-card">
-            <p>Call mom</p>
-            <button type="button" name="complete-button">✔️</button>
+          <section class="task-card completed-task-card">
+            <p>Call Suzy</p>
+            <div class="button-container">
+              <button type="button" id="complete-task-button" name="complete-task-button">✔️</button>
+            </div>
           </section>
-
+          <section class="task-card">
+            <p>Walk dog</p>
+            <div class="button-container">
+              <button type="button" id="complete-task-button" name="complete-task-button">✔️</button>
+            </div>
+          </section>
         </section>
       </article>
       <article>
-        <h2>Tuesday</h2>
+        <h2 class="tuesday-title">Tuesday</h2>
         <section class="tuesday-task-container task-container">
           <!-- tuesday's tasks go here -->
         </section>
       </article>
       <article>
-        <h2>Wednesday</h2>
+        <h2 class="wednesday-title">Wednesday</h2>
         <section class="wednesday-task-container task-container">
           <!-- wednesday's tasks go here -->
+          <section class="task-card">
+            <p>Dinner with Frank</p>
+            <div class="button-container">
+              <button type="button" id="complete-task-button" name="complete-task-button">✔️</button>
+            </div>
+          </section>
         </section>
       </article>
       <article>
-        <h2>Thursday</h2>
+        <h2 class="thursday-title">Thursday</h2>
         <section class="thursday-task-container task-container">
           <!-- thursday's tasks go here -->
         </section>
       </article>
       <article>
-        <h2>Friday</h2>
+        <h2 class="friday-title">Friday</h2>
         <section class="friday-task-container task-container">
           <!-- friday's tasks go here -->
         </section>
