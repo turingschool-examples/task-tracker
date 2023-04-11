@@ -32,7 +32,7 @@
       </div>
       <div class="form-container">
         <label for="task-input">task:</label>
-        <input type="text" id="task-input" name="task-input" value="">
+        <input type="text" id="task-input" name="task-input" maxlength="20" value="">
       </div>
       <div class="form-button-container">
         <button type="button" id="add-task-button" name="add-task-button">add task</button>
@@ -41,54 +41,35 @@
     <main>
       <article>
         <h2 class="monday-title">Monday</h2>
-        <section class="monday-task-container task-container">
+        <section id="monday-task-container" class="monday-task-container task-container">
           <!-- monday's tasks go here -->
-
-          <!-- example card (delete later)-->
-          <section class="task-card completed-task-card">
-            <p>Call Suzy</p>
-            <div class="button-container">
-              <button type="button" id="complete-task-button" name="complete-task-button">✔️</button>
-            </div>
-          </section>
-          <section class="task-card">
-            <p>Walk dog</p>
-            <div class="button-container">
-              <button type="button" id="complete-task-button" name="complete-task-button">✔️</button>
-            </div>
-          </section>
         </section>
       </article>
       <article>
         <h2 class="tuesday-title">Tuesday</h2>
-        <section class="tuesday-task-container task-container">
+        <section id="tuesday-task-container" class="tuesday-task-container task-container">
           <!-- tuesday's tasks go here -->
         </section>
       </article>
       <article>
         <h2 class="wednesday-title">Wednesday</h2>
-        <section class="wednesday-task-container task-container">
+        <section id="wednesday-task-container" class="wednesday-task-container task-container">
           <!-- wednesday's tasks go here -->
-          <section class="task-card">
-            <p>Dinner with Frank</p>
-            <div class="button-container">
-              <button type="button" id="complete-task-button" name="complete-task-button">✔️</button>
-            </div>
-          </section>
         </section>
       </article>
       <article>
         <h2 class="thursday-title">Thursday</h2>
-        <section class="thursday-task-container task-container">
+        <section id="thursday-task-container" class="thursday-task-container task-container">
           <!-- thursday's tasks go here -->
         </section>
       </article>
       <article>
         <h2 class="friday-title">Friday</h2>
-        <section class="friday-task-container task-container">
+        <section id="friday-task-container" class="friday-task-container task-container">
           <!-- friday's tasks go here -->
         </section>
       </article>
     </main>
+    <script src="./main.js"></script>
   </body>
 </html>
