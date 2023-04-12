@@ -23,7 +23,6 @@ var dayContainers = {
 // GLOBAL VARIABLES
 
 var tasks = [];
-var visibleTasks = [];
 
 // EVENT LISTENERS
 
@@ -81,7 +80,6 @@ function toggleTaskStatus(e) {
 
 function displayTasks() {
   clearTasks();
-  updateVisibleTasks();
   renderTasks();
   renderNoTasksMessage();
 }
@@ -95,40 +93,16 @@ function clearTasks() {
 }
 
 function renderTasks() {
-  for (var i = 0; i < visibleTasks.length; i++) {
-    dayContainers[visibleTasks[i].day].innerHTML += `
-    <section class="task-card ${visibleTasks[i].completed ? 'completed' : ''}" id="${visibleTasks[i].id}">
-      <p>${visibleTasks[i].description}</p>
+  for (var i = 0; i < tasks.length; i++) {
+    dayContainers[tasks[i].day].innerHTML += `
+    <section class="task-card ${tasks[i].completed ? 'completed' : ''}" id="${tasks[i].id}">
+      <p>${tasks[i].description}</p>
       <div class="button-container">
         <button type="button" class="toggle-task-button" name="complete-task-button">✔️</button>
       </div>
     </section>
   `
   }
-}
-
-// Filter tasks:
-
-function updateVisibleTasks() {
-  if (filterSelection.value === 'all') {
-    visibleTasks = tasks;
-  } else if (filterSelection.value === 'completed') {
-    visibleTasks = filterTasks(true);
-  } else if (filterSelection.value === 'incomplete') {
-    visibleTasks = filterTasks(false);
-  }
-}
-
-function filterTasks(condition) {
-  var filteredTasks = [];
-  
-  for (var i = 0; i < tasks.length; i++) {
-    if (tasks[i].completed === condition) {
-      filteredTasks.push(tasks[i]);
-    }
-  }
-
-  return filteredTasks;
 }
 
 // No Tasks Message
