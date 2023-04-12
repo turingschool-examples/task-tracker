@@ -206,7 +206,8 @@ h2 {
   margin-bottom: 0;
 }
 
-.toggle-task-button {
+.toggle-task-button,
+.delete-task-button {
   border: none;
   background-color: white;
   font-size: 16px;
@@ -215,7 +216,7 @@ h2 {
 
 .task-card div {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 /* COMPLETED TASK */

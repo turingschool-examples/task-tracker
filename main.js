@@ -95,6 +95,7 @@ function renderTasks() {
     <section class="task-card ${visibleTasks[i].completed ? 'completed' : ''}" id="${visibleTasks[i].id}">
       <p>${visibleTasks[i].description}</p>
       <div class="button-container">
+        <button type="button" class="delete-task-button" name="delete-task-button">❌</button>
         <button type="button" class="toggle-task-button" name="complete-task-button">✔️</button>
       </div>
     </section>
@@ -125,3 +126,5 @@ function filterTasks(condition) {
 
   return filteredTasks;
 }
+
+// Delete tasks:
