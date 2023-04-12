@@ -188,6 +188,12 @@ h2 {
   background-color: #FFE0CD;
 }
 
+.no-tasks-message {
+  margin-top: 50px;
+  font-style: italic;
+  color: #A6A6A6;
+}
+
 /* TASK CARDS */
 
 .task-card {

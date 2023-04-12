@@ -25,6 +25,8 @@ var visibleTasks = [];
 
 // EVENT LISTENERS
 
+window.addEventListener('load', displayTasks);
+
 addTaskButton.addEventListener('click', addTask);
 
 taskDisplay.addEventListener('click', function(event) {
@@ -79,6 +81,7 @@ function displayTasks() {
   clearTasks();
   updateVisibleTasks();
   renderTasks();
+  renderNoTasksMessage();
 }
 
 function clearTasks() {
@@ -91,7 +94,7 @@ function clearTasks() {
 
 function renderTasks() {
   for (var i = 0; i < visibleTasks.length; i++) {
-    dayContainers.monday.innerHTML += `
+    dayContainers[visibleTasks[i].day].innerHTML += `
     <section class="task-card ${visibleTasks[i].completed ? 'completed' : ''}" id="${visibleTasks[i].id}">
       <p>${visibleTasks[i].description}</p>
       <div class="button-container">
@@ -124,4 +127,27 @@ function filterTasks(condition) {
   }
 
   return filteredTasks;
+}
+
+// No Tasks Message
+
+function renderNoTasksMessage() {
+  var noTasksMessage = '<p class="no-tasks-message">No tasks today!</p>';
+  var days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+
+  for (var i = 0; i < days.length; i++) {
+    if (!checkForTasks(days[i])) {
+      dayContainers[days[i]].innerHTML = noTasksMessage;
+    }
+  }
+}
+
+function checkForTasks(day) {
+  var hasTasks = false;
+
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].day === day) {
+      hasTasks = true;
+    }
+  }
 }
