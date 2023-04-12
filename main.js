@@ -91,7 +91,7 @@ function clearTasks() {
 
 function renderTasks() {
   for (var i = 0; i < visibleTasks.length; i++) {
-    dayContainers[visibleTasks[i].day].innerHTML += `
+    dayContainers.monday.innerHTML += `
     <section class="task-card ${visibleTasks[i].completed ? 'completed' : ''}" id="${visibleTasks[i].id}">
       <p>${visibleTasks[i].description}</p>
       <div class="button-container">
