@@ -99,6 +99,10 @@ form button {
   letter-spacing: 1px;
 }
 
+form button:hover {
+  background-color: #EAEEF6;
+}
+
 .form-button-container {
   height: 68px;
   justify-content: flex-end;
