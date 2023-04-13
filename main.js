@@ -3,14 +3,17 @@
 // QUERY SELECTORS
 
 // Filter Form
+
 var filterSelection = document.querySelector('#filter-selection');
 
 // Add Task Form
+
 var daySelection = document.querySelector('#day-selection');
 var taskInput = document.querySelector('#task-input');
 var addTaskButton = document.querySelector('#add-task-button');
 
 // Day Containers
+
 var taskDisplay = document.querySelector('main');
 var dayContainers = {
   monday: document.querySelector('#monday-task-container'),
@@ -22,8 +25,10 @@ var dayContainers = {
 
 // GLOBAL VARIABLES
 
-var tasks = [];
-var visibleTasks = [];
+var tasks = {
+  all: [],
+  filtered: []
+}
 
 // EVENT LISTENERS
 
@@ -42,18 +47,18 @@ filterSelection.addEventListener('change', displayTasks);
 // Create a new task:
 
 function addTask() {
-  var newTask = createTask(daySelection.value, taskInput.value);
-  tasks.push(newTask);
+  var newTask = createTask(daySelection.value, taskInput.value, Date.now());
+  tasks.all.push(newTask);
   displayTasks();
   clearForm();
 }
 
-function createTask(day, description) {
+function createTask(day, description, id) {
   return {
     day,
     description,
+    id,
     completed: false,
-    id: Date.now()
   }
 }
 
@@ -66,9 +71,9 @@ function clearForm() {
 function toggleTaskStatus(e) {
   var selectedCard = e.target.closest('section')
 
-  for (var i = 0; i < tasks.length; i++) {
-    if (tasks[i].id == selectedCard.id) {
-      tasks[i].completed = !tasks[i].completed;
+  for (var i = 0; i < tasks.all.length; i++) {
+    if (tasks.all[i].id == selectedCard.id) {
+      tasks.all[i].completed = !tasks.all[i].completed;
     }
   }
 
@@ -79,7 +84,7 @@ function toggleTaskStatus(e) {
 
 function displayTasks() {
   clearTasks();
-  updateVisibleTasks();
+  updateFilteredTasks();
   renderTasks();
 }
 
@@ -92,10 +97,12 @@ function clearTasks() {
 }
 
 function renderTasks() {
-  for (var i = 0; i < visibleTasks.length; i++) {
-    dayContainers[visibleTasks[i].day].innerHTML += `
-    <section class="task-card ${visibleTasks[i].completed ? 'completed' : ''}" id="${visibleTasks[i].id}">
-      <p>${visibleTasks[i].description}</p>
+  for (var i = 0; i < tasks.filtered.length; i++) {
+    var currentTask = tasks.filtered[i];
+
+    dayContainers[currentTask.day].innerHTML += `
+    <section class="task-card ${currentTask.completed ? 'completed' : ''}" id="${currentTask.id}">
+      <p>${currentTask.description}</p>
       <div class="button-container">
         <button type="button" class="delete-task-button" name="delete-task-button">❌</button>
         <button type="button" class="toggle-task-button" name="complete-task-button">✔️</button>
@@ -107,22 +114,22 @@ function renderTasks() {
 
 // Filter tasks:
 
-function updateVisibleTasks() {
+function updateFilteredTasks() {
   if (filterSelection.value === 'all') {
-    visibleTasks = tasks;
+    tasks.filtered = tasks.all;
   } else if (filterSelection.value === 'completed') {
-    visibleTasks = filterTasks(true);
+    tasks.filtered = filterTasks(true);
   } else if (filterSelection.value === 'incomplete') {
-    visibleTasks = filterTasks(false);
+    tasks.filtered = filterTasks(false);
   }
 }
 
 function filterTasks(condition) {
   var filteredTasks = [];
   
-  for (var i = 0; i < tasks.length; i++) {
-    if (tasks[i].completed === condition) {
-      filteredTasks.push(tasks[i]);
+  for (var i = 0; i < tasks.all.length; i++) {
+    if (tasks.all[i].completed === condition) {
+      filteredTasks.push(tasks.all[i]);
     }
   }
 
