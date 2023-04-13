@@ -1,16 +1,15 @@
-// BUG FIX BRANCH
+// BUG-FIX BRANCH
 
 // QUERY SELECTORS
 
-// Filter Form
-var filterSelection = document.querySelector('#filter-selection');
-
 // Add Task Form
+
 var daySelection = document.querySelector('#day-selection');
 var taskInput = document.querySelector('#task-input');
 var addTaskButton = document.querySelector('#add-task-button');
 
 // Day Containers
+
 var taskDisplay = document.querySelector('main');
 var dayContainers = {
   monday: document.querySelector('#monday-task-container'),
@@ -41,18 +40,18 @@ taskDisplay.addEventListener('click', function(event) {
 // Create a new task:
 
 function addTask() {
-  var newTask = createTask(daySelection.value, taskInput.value);
+  var newTask = createTask(daySelection.value, taskInput.value, Date.now());
   tasks.push(newTask);
   displayTasks();
   clearForm();
 }
 
-function createTask(day, description) {
+function createTask(day, description, id) {
   return {
     day,
     description,
+    id,
     completed: false,
-    id: Date.now()
   }
 }
 
@@ -92,9 +91,11 @@ function clearTasks() {
 
 function renderTasks() {
   for (var i = 0; i < tasks.length; i++) {
-    dayContainers[tasks[i].day].innerHTML += `
-    <section class="task-card ${tasks[i].completed ? 'completed' : ''}" id="${tasks[i].id}">
-      <p>${tasks[i].description}</p>
+    var currentTask = tasks[i];
+  
+    dayContainers[currentTask.day].innerHTML += `
+    <section class="task-card ${currentTask.completed ? 'completed' : ''}" id="${currentTask.id}">
+      <p>${currentTask.description}</p>
       <div class="button-container">
         <button type="button" class="toggle-task-button" name="complete-task-button">✔️</button>
       </div>
@@ -116,12 +117,12 @@ function renderNoTasksMessage() {
   }
 }
 
-function checkForTasks(day) {
+function checkForTasks() {
   var hasTasks = false;
 
   for (var i = 0; i < tasks.length; i++) {
-    if (tasks[i].day === day) {
-      hasTasks = true;
+    if (tasks.day === day) {
+      hasTasks = true
     }
   }
 }
