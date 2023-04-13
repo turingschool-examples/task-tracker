@@ -36,8 +36,6 @@ taskDisplay.addEventListener('click', function(event) {
   }
 });
 
-filterSelection.addEventListener('change', displayTasks);
-
 // FUNCTIONS
 
 // Create a new task:
